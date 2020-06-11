@@ -4,6 +4,7 @@ Created on Thu Jun 11 09:38:49 2020
 
 @author: Kyoung yeon
 """
+# try!!!!!
 run profile1
 
 # matplotlib 한글 출력 가능하도록 만들기
