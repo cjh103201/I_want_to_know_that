@@ -6,7 +6,7 @@
 
 
 
-run profile1
+#run profile1
 
 pre_season = pd.read_csv('Pre_Season_Batter.csv', engine='python')
 regular_season = pd.read_csv('Regular_Season_batter.csv', engine='python')
