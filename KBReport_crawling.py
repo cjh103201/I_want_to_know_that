@@ -7,6 +7,7 @@ driver = webdriver.Chrome('chromedriver.exe')
 name=[]    # 이름
 birth=[]   # 생년월일
 height_weight=[]  # 키/몸무게
+team=[]   # 소속 팀
 i_list = [840,841,842,859,868,869,882,883,889,893,909,913,915,916,917,921,922,923,924,925,926,927,942,943,951,957,961,1004,1036,1054,1057,1335,1373]     # 오류번호 리스트(제외대상)
 
 for i in range(1,1790):
@@ -25,16 +26,20 @@ for i in range(1,1790):
     
         height_weight.append(soup.select(".player-info-3")[0].get_text())     # 키/몸무게
         print(soup.select(".player-info-3")[0].get_text())
-
         
+        team.append(soup.select(".player-info-6")[0].get_text())
+        print(soup.select(".player-info-6")[0].get_text())
+
+
 birth = [i.split(' ')[1] for i in birth]    # 생년월일 1995-12-14 에서 뒤에꺼만 추출
 birth = pd.to_datetime(birth)
 height_weight = [i.split(' ')[1] for i in height_weight]    # 000cm/00kg 만 추출
 height = [i.split('/')[0] for i in height_weight]    # 키 추출
 weight = [i.split('/')[1] for i in height_weight]    # 몸무게 추출
-
+team = [i.split(' ')[1] for i in team]
 
 info = DataFrame({'name':name,
+                  'team':team,
                   'birth':birth,
                   'height':height,
                   'weight':weight})
