@@ -25,3 +25,21 @@ for i in range(1,1790):
     
         height_weight.append(soup.select(".player-info-3")[0].get_text())     # 키/몸무게
         print(soup.select(".player-info-3")[0].get_text())
+
+        
+birth = [i.split(' ')[1] for i in birth]    # 생년월일 1995-12-14 에서 뒤에꺼만 추출
+birth = pd.to_datetime(birth)
+height_weight = [i.split(' ')[1] for i in height_weight]    # 000cm/00kg 만 추출
+height = [i.split('/')[0] for i in height_weight]    # 키 추출
+weight = [i.split('/')[1] for i in height_weight]    # 몸무게 추출
+
+
+info = DataFrame({'name':name,
+                  'birth':birth,
+                  'height':height,
+                  'weight':weight})
+
+len(info.name.unique())   # 1661 (데이터프레임 길이는 1756으로 겹치는게 95개 존재)
+info.loc[info.name == '고우석',:]     # 동명이인 존재
+
+info
