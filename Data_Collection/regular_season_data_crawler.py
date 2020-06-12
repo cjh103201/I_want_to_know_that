@@ -156,5 +156,5 @@ if __name__ == '__main__':
                                   'hr': hr, 'tb': tb, 'rbi': rbi, 'sb': sb, 'cs': cs, 'bb': bb, 'hbp': hbp,
                                   'bb4': bb4, 'so': so, 'gdp': gdp, 'ht': ht, 'hb': hb, 'avg': avg, 'obp': obp,
                                   'slg': slg, 'ops': ops})
-    df_reglar_season.to_csv("regular_season_data.csv", mode='w')
+    df_reglar_season.to_csv("../Data/regular_season_data.csv", mode='w')
     print("complete")
