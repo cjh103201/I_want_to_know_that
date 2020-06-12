@@ -8,9 +8,9 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
 
-from pandas import DataFrame
-
 import re
+
+import Common.profile1 as p
 
 # 변수  선언
 # num = [];
@@ -135,7 +135,6 @@ def getData(driver):
 
 
 if __name__ == '__main__':
-
     for k in range(0, 9001, 500):
         print(str(k))
         start = str(k)
@@ -152,7 +151,7 @@ if __name__ == '__main__':
 
         driver.quit()
 
-    df_reglar_season = DataFrame({'name': name, 'year': year, 'team': team, 'position': position,
+    df_reglar_season = p.DataFrame({'name': name, 'year': year, 'team': team, 'position': position,
                                   'war': war, 'g': g, 'ts': ts, 'ab': ab, 'r1': r1, 'h': h, 'b2': b2, 'b3': b3,
                                   'hr': hr, 'tb': tb, 'rbi': rbi, 'sb': sb, 'cs': cs, 'bb': bb, 'hbp': hbp,
                                   'bb4': bb4, 'so': so, 'gdp': gdp, 'ht': ht, 'hb': hb, 'avg': avg, 'obp': obp,
