@@ -106,7 +106,7 @@ for j in range(2001,2021):
 # 파일로 저장    
 gameCenter.to_csv('gamecenter.csv',encoding='euc-kr') 
 # encoding='utf-8-sig'
-# encoding='cp949' #
+# encoding='cp949'
 
 # 파일 불러오기
 dataset = pd.read_csv('gamecenter.csv',encoding='cp949')
