@@ -6,22 +6,13 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9db3b2d0-80ad-4b6b-ae3f-ef3c3d372268" name="Default Changelist" comment="info">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Preprocessing/info_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Preprocessing/info_data.py" afterDir="false" />
+    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Collection/gamecenter_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Collection/gamecenter_crawler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +21,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
-  <component name="ProjectId" id="1dD59GREm9pRWVwwO7BgpdBJuiC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1dBBxmaJ5peCK7rmdcqFu5gU2zy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,52 +32,41 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HOON\Desktop\python\know_that\Data" />
-      <recent name="C:\Users\HOON\Desktop\python\know_that\Data_Collection" />
-      <recent name="C:\Users\HOON\Desktop\python\know_that\Data_Preprocessing" />
-    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9db3b2d0-80ad-4b6b-ae3f-ef3c3d372268" name="Default Changelist" comment="" />
-      <created>1591946669669</created>
+      <changelist id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="" />
+      <created>1591888854875</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591946669669</updated>
+      <updated>1591888854875</updated>
     </task>
-    <task id="LOCAL-00001" summary="info">
-      <created>1591947465077</created>
+    <task id="LOCAL-00001" summary="12:23">
+      <created>1591889043397</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1591947465077</updated>
+      <updated>1591889043397</updated>
     </task>
-    <task id="LOCAL-00002" summary="info">
-      <created>1591947665970</created>
+    <task id="LOCAL-00002" summary="12:23">
+      <created>1591925105005</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1591947665970</updated>
+      <updated>1591925105005</updated>
     </task>
-    <task id="LOCAL-00003" summary="info">
-      <created>1591947712437</created>
+    <task id="LOCAL-00003" summary="0">
+      <created>1591925723154</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1591947712437</updated>
+      <updated>1591925723154</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -99,19 +78,37 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="info" />
-    <option name="LAST_COMMIT_MESSAGE" value="info" />
+    <MESSAGE value="12:23" />
+    <MESSAGE value="0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="433" y="281" key="Vcs.Push.Dialog.v2" timestamp="1591947728611">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="406" y="173" key="MultipleFileMergeDialog" timestamp="1591925744592">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="433" y="281" key="Vcs.Push.Dialog.v2/1920.87.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1591947728611" />
-    <state x="657" y="319" key="git4idea.merge.GitPullDialog" timestamp="1591947720827">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="406" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925744592" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2" timestamp="1592144024647">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="657" y="319" key="git4idea.merge.GitPullDialog/1920.87.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1591947720827" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144024647" />
+    <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591925775483">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1591925775483" />
+    <state x="511" y="199" key="git4idea.merge.GitMergeDialog" timestamp="1591925662393">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="511" y="199" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925662393" />
+    <state x="453" y="180" key="git4idea.merge.GitPullDialog" timestamp="1592143286849">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592143286849" />
+    <state x="521" y="201" key="git4idea.ui.GitUnstashDialog" timestamp="1591925699372">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="521" y="201" key="git4idea.ui.GitUnstashDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925699372" />
   </component>
 </project>
