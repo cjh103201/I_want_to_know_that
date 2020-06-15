@@ -11,7 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0">
-      <change beforePath="$PROJECT_DIR$/Data_Collection/gamecenter_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Collection/gamecenter_crawler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/gamecenter.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +32,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Data" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\PycharmProjects\I_want_to_know_that\Data" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -71,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592144118866</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0">
+      <created>1592144374266</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592144374266</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,10 +110,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="406" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925744592" />
-    <state x="349" y="127" key="Vcs.Push.Dialog.v2" timestamp="1592144024647">
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2" timestamp="1592144442660">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144024647" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144442660" />
     <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591925775483">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
