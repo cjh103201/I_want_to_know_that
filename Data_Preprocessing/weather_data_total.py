@@ -17,5 +17,3 @@ for i in range(2002, 2020):
     w_data.append(tmp)
 
 w_data.to_csv("../Data/weather.csv")
-
-## 이후, 일별 경기 데이터와 합칠 예정
