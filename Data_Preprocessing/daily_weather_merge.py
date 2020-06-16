@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #############
 # by Jeehyun
-# 날씨 데이터와 일별 경기 데이터 merge 및 전처리
+# 날씨 데이터와 일별 경기 데이터 전처리 및 merge
 #############
 
 import pandas as pd

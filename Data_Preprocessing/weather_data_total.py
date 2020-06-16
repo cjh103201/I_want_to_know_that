@@ -13,6 +13,6 @@ w_data = pd.read_csv("../Data/weather/2001.csv",  encoding='cp949')
 for i in range(2002, 2020):
     filename = "../Data/weather/" + str(i) + ".csv"
     tmp = pd.read_csv(filename, encoding='cp949')
-    w_data.append(tmp)
+    w_data = w_data.append(tmp)
 
 w_data.to_csv("../Data/weather.csv")
