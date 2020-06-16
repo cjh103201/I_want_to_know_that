@@ -15,4 +15,9 @@ for i in range(2002, 2020):
     tmp = pd.read_csv(filename, encoding='cp949')
     w_data = w_data.append(tmp)
 
+for i in range(1, 9):
+    filename = "../Data/weather/add/" + str(i) + ".csv"
+    tmp = pd.read_csv(filename, encoding='cp949')
+    w_data = w_data.append(tmp)
+
 w_data.to_csv("../Data/weather.csv")
