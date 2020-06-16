@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 """
 Created on Sun Jun 14 21:20:09 2020
@@ -9,10 +8,16 @@ Created on Sun Jun 14 21:20:09 2020
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
+from pandas import DataFrame
+
+total_data = DataFrame()
 
 def data_parsing(html_data) :
     soup_detail = BeautifulSoup(html_detail, 'html.parser')
     print(html_data)
+
+    df_temp = DataFrame()
+    return df_temp
 
 
 if __name__ == "__main__":
@@ -43,8 +48,10 @@ if __name__ == "__main__":
                 driver.get('https://www.koreabaseball.com' + href)
 
                 html_detail = driver.page_source
-                data_parsing(html_detail)
+                df_temp_return = data_parsing(html_detail)
+                total_data.append(df_temp_return)
 
+    total_data.to_csv("")
 
 
 
