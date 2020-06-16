@@ -8,10 +8,10 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
-
 import re
 
 import Common.profile1 as p
+
 
 # 변수  선언
 # num = [];
@@ -41,6 +41,7 @@ avg = []  # 타율
 obp = []  # 출루율
 slg = []  # 장타율
 ops = []
+birth = []
 
 reg = re.compile('([0-9]+)([ㄱ-힣]+)([0-9]{2})([a-zA-Zㄱ-힣])([0-9a-zA-Zㄱ-힣]+)')
 reg1 = re.compile('([0-9]+)([ㄱ-힣]+)([0-9]{2})([a-zA-Zㄱ-힣])')
@@ -132,11 +133,20 @@ def getData(driver):
     soup = BeautifulSoup(html, "html.parser")
 
     tbl = soup.select("#mytable")
-    return (tbl)
+    bd = tbl[0].select("td > a")
+
+    return tbl, bd
+
+def parsingBirthday(bday):
+    for b in bday:
+        href = b.attrs['href']
+        text = b.string
+        if text != None:
+            birth.append(href.split("birth=")[1])
 
 
 if __name__ == '__main__':
-    for k in range(0, 9001, 500):
+    for k in range(0, 9000, 500):
         print(str(k))
         start = str(k)
         url = "http://www.statiz.co.kr/stat.php?mid=stat&re=0&ys=1982&ye=2019&se=0&te=&tm=&ty=0" \
@@ -147,7 +157,9 @@ if __name__ == '__main__':
 
         driver.get(url)
         time.sleep(10)
-        data500 = getData(driver)
+        data500, bd = getData(driver)
+
+        parsingBirthday(bd)
         dataParsing(data500)
 
         driver.quit()
@@ -156,6 +168,6 @@ if __name__ == '__main__':
                                   'war': war, 'g': g, 'ts': ts, 'ab': ab, 'r1': r1, 'h': h, 'b2': b2, 'b3': b3,
                                   'hr': hr, 'tb': tb, 'rbi': rbi, 'sb': sb, 'cs': cs, 'bb': bb, 'hbp': hbp,
                                   'bb4': bb4, 'so': so, 'gdp': gdp, 'ht': ht, 'hb': hb, 'avg': avg, 'obp': obp,
-                                  'slg': slg, 'ops': ops})
+                                  'slg': slg, 'ops': ops, 'birth': birth})
     df_reglar_season.to_csv("../Data/regular_season_data.csv", mode='w')
     print("complete")

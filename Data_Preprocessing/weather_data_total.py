@@ -7,7 +7,6 @@
 #############
 
 import pandas as pd
-from pandas import DataFrame
 
 w_data = pd.read_csv("../Data/weather/2001.csv",  encoding='cp949')
 
