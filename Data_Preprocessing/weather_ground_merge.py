@@ -11,3 +11,4 @@ del weather_ground_merge['지점명']
 del weather_ground_merge['일시']
 del weather_ground_merge['name']
 
+weather_ground_merge.to_csv('weather_ground_merge.csv')
