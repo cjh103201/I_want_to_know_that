@@ -38,3 +38,4 @@ del info['age']            # info의 나이 데이터는 시즌 별 나이와 �
 regular_merge = pd.merge(regular, info, left_on=['name','team','birth'], right_on=['batter_name','team','birthday'])
 regular_merge.to_csv('regular_merge.csv')
 
+
