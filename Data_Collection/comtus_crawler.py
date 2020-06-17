@@ -203,8 +203,19 @@ result_2019_away = pd.DataFrame(away_result, index=[game_date], columns=['PA','A
 result_2019_home['ground'] = ground_name
 result_2019_away['ground'] = ground_name
 
+result_2015_home.to_csv('result_2015_home.csv')
+result_2015_away.to_csv('result_2015_away.csv')
 
+result_2016_home.to_csv('result_2016_home.csv')
+result_2016_away.to_csv('result_2016_away.csv')
 
+result_2017_home.to_csv('result_2017_home.csv')
+result_2017_away.to_csv('result_2017_away.csv')
 
+result_2018_home.to_csv('result_2018_home.csv')
+result_2018_away.to_csv('result_2018_away.csv')
+
+result_2019_home.to_csv('result_2019_home.csv')
+result_2019_away.to_csv('result_2019_away.csv')
 
 
