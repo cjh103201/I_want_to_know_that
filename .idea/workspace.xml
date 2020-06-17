@@ -10,9 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0">
-      <change afterPath="$PROJECT_DIR$/Data/gamecenter.csv" afterDir="false" />
+    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="추가 전처리 수행">
+      <change afterPath="$PROJECT_DIR$/Data_Modeling/rf_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/I_want_to_know_that.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/I_want_to_know_that.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Final_Data/weather_ground_merge.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Final_Data/weather_ground_merge.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Collection/player_info_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Collection/player_info_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Preprocessing/rf_test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +39,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Data" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HOON\PycharmProjects\I_want_to_know_that\Data_Modeling" />
+      <recent name="C:\Users\HOON\PycharmProjects\I_want_to_know_that\Data_Preprocessing" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lenovo\PycharmProjects\I_want_to_know_that\Data" />
     </key>
@@ -85,8 +93,74 @@
       <option name="project" value="LOCAL" />
       <updated>1592144374266</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="0">
+      <created>1592272340821</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592272340821</updated>
+    </task>
+    <task id="LOCAL-00007" summary="구장정보">
+      <created>1592283706821</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592283706821</updated>
+    </task>
+    <task id="LOCAL-00008" summary="randomforest_regressor test">
+      <created>1592283726657</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592283726657</updated>
+    </task>
+    <task id="LOCAL-00009" summary="선수 정보 데이터 전처리">
+      <created>1592283769581</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592283769581</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1.좌중앙,우중앙은 고려 안함&#10;2.길이가 다른 경우는 평균값으로 계산&#10;3.제주도 펜스길이 데이터 존재x, 평균값으로 계산">
+      <created>1592285313646</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592285313646</updated>
+    </task>
+    <task id="LOCAL-00011" summary="구장별 날씨 + 구장 펜스길이">
+      <created>1592288520550</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592288520550</updated>
+    </task>
+    <task id="LOCAL-00012" summary="구장별 날씨 + 구장 펜스길이">
+      <created>1592288630212</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592288630212</updated>
+    </task>
+    <task id="LOCAL-00013" summary="추가 전처리 수행">
+      <created>1592291860073</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1592291860073</updated>
+    </task>
+    <task id="LOCAL-00014" summary="추가 전처리 수행">
+      <created>1592381609594</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1592381609594</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -103,16 +177,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12:23" />
     <MESSAGE value="0" />
-    <option name="LAST_COMMIT_MESSAGE" value="0" />
+    <MESSAGE value="구장정보" />
+    <MESSAGE value="randomforest_regressor test" />
+    <MESSAGE value="선수 정보 데이터 전처리" />
+    <MESSAGE value="1.좌중앙,우중앙은 고려 안함&#10;2.길이가 다른 경우는 평균값으로 계산&#10;3.제주도 펜스길이 데이터 존재x, 평균값으로 계산" />
+    <MESSAGE value="구장별 날씨 + 구장 펜스길이" />
+    <MESSAGE value="추가 전처리 수행" />
+    <option name="LAST_COMMIT_MESSAGE" value="추가 전처리 수행" />
   </component>
   <component name="WindowStateProjectService">
     <state x="406" y="173" key="MultipleFileMergeDialog" timestamp="1591925744592">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="406" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925744592" />
-    <state x="349" y="127" key="Vcs.Push.Dialog.v2" timestamp="1592144442660">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1484" y="168" key="Vcs.Push.Dialog.v2" timestamp="1592297101291">
+      <screen x="-1920" y="8" width="1920" height="1040" />
     </state>
+    <state x="-1484" y="168" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297101291" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267513670" />
     <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144442660" />
     <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591925775483">
       <screen x="0" y="0" width="1536" height="824" />
@@ -122,10 +204,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="199" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925662393" />
-    <state x="453" y="180" key="git4idea.merge.GitPullDialog" timestamp="1592143286849">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="566" y="227" key="git4idea.merge.GitPullDialog" timestamp="1592383948047">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1354" y="235" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297090472" />
+    <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267471359" />
     <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592143286849" />
+    <state x="566" y="227" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592383948047" />
     <state x="521" y="201" key="git4idea.ui.GitUnstashDialog" timestamp="1591925699372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

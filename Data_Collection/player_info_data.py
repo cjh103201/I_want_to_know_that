@@ -38,4 +38,37 @@ del info['age']            # info의 나이 데이터는 시즌 별 나이와 �
 regular_merge = pd.merge(regular, info, left_on=['name','team','birth'], right_on=['batter_name','team','birthday'])
 regular_merge.to_csv('regular_merge.csv')
 
+# 추가 필요 전처리
+import pandas as pd
+regular = pd.read_csv('regular_merge.csv')
+
+del regular['Unnamed: 0']    # 불필요컬럼 제거
+del regular['batter_name']   # 중복컬럼 제거
+del regular['birthday']      # 중복컬럼 제거
+
+year_imsi=[]
+for i in regular['year']:
+    if i>20:
+        year_imsi.append(int('19'+str(i)))
+    elif i<10:
+        year_imsi.append(int('200'+str(i)))
+    else:
+        year_imsi.append(int('20'+str(i)))     # 2005 형태로 연도 재가공
+
+regular['year'] = year_imsi   # 가공된 데이터 덮어쓰기
+regular['age'] = regular['year'] - regular['birth'].str[:4].astype('int') + 1    # 해당 시즌년도 - 출생년도 + 1 = 해당 시즌 나이
+
+regular['height'] = regular['height'].map(lambda x : int(x.replace('cm','')))   # 키 데이터 숫자형태로 재가공
+regular['weight'] = regular['weight'].map(lambda x : int(x.replace('kg','')))   # 몸무게 데이터 숫자형태로 재가공
+
+regular = regular[['name','year','team','position','birth','height','weight','age','war', 'g', 'ts', 'ab', 'r1', 'h', 'b2', 'b3', 'hr', 'tb',
+                   'rbi', 'sb', 'cs', 'bb', 'hbp', 'bb4', 'so', 'gdp', 'ht', 'hb', 'avg', 'obp', 'slg', 'ops']]     # 컬럼 순서 변경
+regular.to_csv('regular_merge.csv')
+
+
+
+
+
+
+
 
