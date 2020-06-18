@@ -10,11 +10,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="전체 시즌 선수정보와 팀 순위의 상관관계 파악하는 함수">
-      <change beforePath="$PROJECT_DIR$/.idea/I_want_to_know_that.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/I_want_to_know_that.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Collection/daily_review.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Collection/daily_review.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592449563248</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="0">
+      <created>1592465214349</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1592465214349</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -252,43 +256,44 @@
     <MESSAGE value="구장별 날씨 + 구장 펜스길이" />
     <MESSAGE value="추가 전처리 수행" />
     <MESSAGE value="컴투스 팀성적 크롤링데이터" />
-    <MESSAGE value="0" />
     <MESSAGE value="시즌별 팀 순위" />
     <MESSAGE value="전체 시즌 선수정보와 팀 순위의 상관관계 파악하는 함수" />
-    <option name="LAST_COMMIT_MESSAGE" value="전체 시즌 선수정보와 팀 순위의 상관관계 파악하는 함수" />
+    <MESSAGE value="0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1362" height="195" key="GridCell.Tab.0.bottom" timestamp="1592462233671">
+    <state width="1362" height="195" key="GridCell.Tab.0.bottom" timestamp="1592465264931">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="195" key="GridCell.Tab.0.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592462233671" />
-    <state width="1362" height="195" key="GridCell.Tab.0.center" timestamp="1592462233671">
+    <state width="1362" height="195" key="GridCell.Tab.0.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465264931" />
+    <state width="1362" height="195" key="GridCell.Tab.0.center" timestamp="1592465264931">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="195" key="GridCell.Tab.0.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592462233671" />
-    <state width="1362" height="195" key="GridCell.Tab.0.left" timestamp="1592462233671">
+    <state width="1362" height="195" key="GridCell.Tab.0.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465264931" />
+    <state width="1362" height="195" key="GridCell.Tab.0.left" timestamp="1592465264931">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="195" key="GridCell.Tab.0.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592462233671" />
-    <state width="1362" height="195" key="GridCell.Tab.0.right" timestamp="1592462233671">
+    <state width="1362" height="195" key="GridCell.Tab.0.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465264931" />
+    <state width="1362" height="195" key="GridCell.Tab.0.right" timestamp="1592465264931">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="195" key="GridCell.Tab.0.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592462233671" />
-    <state x="406" y="173" key="MultipleFileMergeDialog" timestamp="1591925744592">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1362" height="195" key="GridCell.Tab.0.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465264931" />
+    <state x="508" y="218" key="MultipleFileMergeDialog" timestamp="1592465231120">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="406" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925744592" />
+    <state x="508" y="218" key="MultipleFileMergeDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465231120" />
     <state x="280" y="86" key="SettingsEditor" timestamp="1592455515124">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="280" y="86" key="SettingsEditor/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592455515124" />
-    <state x="436" y="160" key="Vcs.Push.Dialog.v2" timestamp="1592449581045">
+    <state x="436" y="160" key="Vcs.Push.Dialog.v2" timestamp="1592465239596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1484" y="168" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297101291" />
     <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267513670" />
     <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144442660" />
-    <state x="436" y="160" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592449581045" />
+    <state x="436" y="160" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465239596" />
     <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591925775483">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -297,13 +302,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="199" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925662393" />
-    <state x="566" y="227" key="git4idea.merge.GitPullDialog" timestamp="1592455440137">
+    <state x="566" y="227" key="git4idea.merge.GitPullDialog" timestamp="1592465223785">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1354" y="235" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297090472" />
     <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267471359" />
     <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592143286849" />
-    <state x="566" y="227" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592455440137" />
+    <state x="566" y="227" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592465223785" />
     <state x="521" y="201" key="git4idea.ui.GitUnstashDialog" timestamp="1591925699372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
