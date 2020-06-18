@@ -49,18 +49,23 @@ def team_details(s, id):
         return result
     return DataFrame()
 
+def get_more_info(data_str, length):
+    data_list = []
+    for i in range(0, length):
+        data_list.append(str(data_str))
+    return data_list
 
 def data_parsing(html_data, total):
     soup_detail = BeautifulSoup(html_detail, 'html.parser')
 
     # 구장, 관중, 날짜, 개시시간, 경기시간, 팀1, 팀2
-    std = soup_detail.select('#txtStadium')[0].text  # 구장
-    crd = soup_detail.select('#txtCrowd')[0].text  # 관중
+    std = soup_detail.select('#txtStadium')[0].text.split(' : ')[1]  # 구장
+    crd = soup_detail.select('#txtCrowd')[0].text.split(' : ')[1]  # 관중
     date = soup_detail.select('#lblGameDate')[0].text  # 날짜
-    start = soup_detail.select('#txtStartTime')[0].text  # 개시시간
-    runtime = soup_detail.select('#txtRunTime')[0].text  # 경기시간
-    team1 = soup_detail.select('#lblAwayHitter')[0].text  # 팀1
-    team2 = soup_detail.select('#lblHomeHitter')[0].text  # 팀2
+    start = soup_detail.select('#txtStartTime')[0].text.split(' : ')[1]  # 개시시간
+    runtime = soup_detail.select('#txtRunTime')[0].text.split(' : ')[1]  # 경기시간
+    team1 = soup_detail.select('#lblAwayHitter')[0].text.split(' ')[0]  # 팀1
+    team2 = soup_detail.select('#lblHomeHitter')[0].text.split(' ')[0]  # 팀2
 
     # 타자별 경기 - team1
     team1_details = team_details(soup_detail, 'tblAwayHitter')
@@ -69,6 +74,38 @@ def data_parsing(html_data, total):
     team2_details = team_details(soup_detail, 'tblHomeHitter')
 
     if len(team1_details) > 0:
+        stds = get_more_info(std, len(team1_details))
+        crds = get_more_info(crd, len(team1_details))
+        dates = get_more_info(date, len(team1_details))
+        starts = get_more_info(start, len(team1_details))
+        runtimes = get_more_info(runtime, len(team1_details))
+        team1s = get_more_info(team1, len(team1_details))
+        team2s = get_more_info(team2, len(team1_details))
+
+        team1_details['구장'] = stds
+        team1_details['관중'] = crds
+        team1_details['날짜'] = dates
+        team1_details['개시시간'] = starts
+        team1_details['경기시간'] = runtimes
+        team1_details['team1'] = team1s
+        team1_details['team2'] = team2s
+
+        stds = get_more_info(std, len(team2_details))
+        crds = get_more_info(crd, len(team2_details))
+        dates = get_more_info(date, len(team2_details))
+        starts = get_more_info(start, len(team2_details))
+        runtimes = get_more_info(runtime, len(team2_details))
+        team1s = get_more_info(team1, len(team2_details))
+        team2s = get_more_info(team2, len(team2_details))
+
+        team2_details['구장'] = stds
+        team2_details['관중'] = crds
+        team2_details['날짜'] = dates
+        team2_details['개시시간'] = starts
+        team2_details['경기시간'] = runtimes
+        team2_details['team1'] = team2s
+        team2_details['team2'] = team1s
+
         re = pd.concat([team1_details, team2_details])
         total = pd.concat([total, re])
 
@@ -111,6 +148,7 @@ if __name__ == "__main__":
 
                 html_detail = driver.page_source
                 total_data = data_parsing(html_detail, total_data)
+
                 driver.quit()
 
     total_data.to_csv("../Data/daily_review.csv", mode='w')
