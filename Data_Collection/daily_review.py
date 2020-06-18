@@ -59,11 +59,11 @@ def data_parsing(html_data, total):
     soup_detail = BeautifulSoup(html_detail, 'html.parser')
 
     # 구장, 관중, 날짜, 개시시간, 경기시간, 팀1, 팀2
-    std = soup_detail.select('#txtStadium')[0].text.split(' : ')[1]  # 구장
-    crd = soup_detail.select('#txtCrowd')[0].text.split(' : ')[1]  # 관중
+    std = soup_detail.select('#txtStadium')[0].text  # 구장
+    crd = soup_detail.select('#txtCrowd')[0].text    # 관중
     date = soup_detail.select('#lblGameDate')[0].text  # 날짜
-    start = soup_detail.select('#txtStartTime')[0].text.split(' : ')[1]  # 개시시간
-    runtime = soup_detail.select('#txtRunTime')[0].text.split(' : ')[1]  # 경기시간
+    start = soup_detail.select('#txtStartTime')[0].text  # 개시시간
+    runtime = soup_detail.select('#txtRunTime')[0].text  # 경기시간
     team1 = soup_detail.select('#lblAwayHitter')[0].text.split(' ')[0]  # 팀1
     team2 = soup_detail.select('#lblHomeHitter')[0].text.split(' ')[0]  # 팀2
 
@@ -115,9 +115,10 @@ def data_parsing(html_data, total):
 
 
 if __name__ == "__main__":
-    total_data = DataFrame()
+
 
     for year in range(2001, 2020):
+        total_data = DataFrame()
         print(year)
 
         for month in range(3, 11):
@@ -126,13 +127,13 @@ if __name__ == "__main__":
 
             url = 'https://www.koreabaseball.com/Schedule/Schedule.aspx'
             driver.get(url)
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(5)
 
             driver.find_element_by_xpath("//select[@id='ddlYear']/option[@value=" + str(year) + "]").click()  # 년 선택
-            driver.implicitly_wait(3)
+            driver.implicitly_wait(5)
 
             driver.find_element_by_xpath("//select[@id='ddlMonth']/option[@value=" + str(month) + "]").click() # 월 선택
-            driver.implicitly_wait(5)
+            driver.implicitly_wait(10)
 
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -143,17 +144,12 @@ if __name__ == "__main__":
                 href = tags.split('href="')[1].split('"')[0]
 
                 driver = webdriver.Chrome('/Users/jeehyun/Downloads/chromedriver')
-                driver.implicitly_wait(10)
+                driver.implicitly_wait(5)
                 driver.get('https://www.koreabaseball.com' + href)
 
                 html_detail = driver.page_source
                 total_data = data_parsing(html_detail, total_data)
 
                 driver.quit()
-
-    total_data.to_csv("../Data/daily_review.csv", mode='w')
-
-
-    # total_data.to_csv("")
-
+        total_data.to_csv("../Data/daily_review_" + year + ".csv", mode='w')
 
