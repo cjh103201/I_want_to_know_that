@@ -24,6 +24,7 @@ def team_details(s, id):
             selector2 = '#' + id +'2 > div > div > table > tbody > tr'
             game_details = s.select(selector2)
         game_contents = DataFrame()
+        game_contents['name'] = names
         for gd in range(0, len(game_details)):
             soup_tr = BeautifulSoup(str(game_details[gd]), 'html.parser')
             tds = soup_tr.select("td")
@@ -118,10 +119,10 @@ if __name__ == "__main__":
 
 
     for year in range(2001, 2020):
-        total_data = DataFrame()
         print(year)
 
         for month in range(3, 11):
+            total_data = DataFrame()
             driver = webdriver.Chrome('../Common/chromedriver')
             driver.implicitly_wait(10)
 
@@ -130,10 +131,10 @@ if __name__ == "__main__":
             driver.implicitly_wait(5)
 
             driver.find_element_by_xpath("//select[@id='ddlYear']/option[@value=" + str(year) + "]").click()  # 년 선택
-            driver.implicitly_wait(5)
+            driver.implicitly_wait(3)
 
             driver.find_element_by_xpath("//select[@id='ddlMonth']/option[@value=" + str(month) + "]").click() # 월 선택
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(13)
 
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -151,5 +152,5 @@ if __name__ == "__main__":
                 total_data = data_parsing(html_detail, total_data)
 
                 driver.quit()
-        total_data.to_csv("../Data/daily_review_" + year + ".csv", mode='w')
+            total_data.to_csv("../Data/daily_review_" + str(year) + "_" + str(month) + ".csv", mode='w')
 
