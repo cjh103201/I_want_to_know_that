@@ -24,6 +24,7 @@ def team_details(s, id):
             selector2 = '#' + id +'2 > div > div > table > tbody > tr'
             game_details = s.select(selector2)
         game_contents = DataFrame()
+        game_contents['name'] = names
         for gd in range(0, len(game_details)):
             soup_tr = BeautifulSoup(str(game_details[gd]), 'html.parser')
             tds = soup_tr.select("td")
@@ -117,12 +118,12 @@ def data_parsing(html_data, total):
 if __name__ == "__main__":
 
 
-    for year in range(2001, 2020):
-        total_data = DataFrame()
+    for year in range(2011, 2020):
         print(year)
 
         for month in range(3, 11):
-            driver = webdriver.Chrome('../Common/chromedriver')
+            total_data = DataFrame()
+            driver = webdriver.Chrome('C:/Users/HOON/Desktop/python/chromedriver')
             driver.implicitly_wait(10)
 
             url = 'https://www.koreabaseball.com/Schedule/Schedule.aspx'
@@ -143,7 +144,7 @@ if __name__ == "__main__":
                 tags = str(tr[i])
                 href = tags.split('href="')[1].split('"')[0]
 
-                driver = webdriver.Chrome('/Users/jeehyun/Downloads/chromedriver')
+                driver = webdriver.Chrome('C:/Users/HOON/Desktop/python/chromedriver')
                 driver.implicitly_wait(5)
                 driver.get('https://www.koreabaseball.com' + href)
 
@@ -151,5 +152,5 @@ if __name__ == "__main__":
                 total_data = data_parsing(html_detail, total_data)
 
                 driver.quit()
-        total_data.to_csv("../Data/daily_review_" + year + ".csv", mode='w')
+            total_data.to_csv("C:/Users/HOON/PycharmProjects/I_want_to_know_that/Data" + str(year) + '_' + str(month) + ".csv", mode='w')
 
