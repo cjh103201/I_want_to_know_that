@@ -10,6 +10,7 @@ import pandas as pd
 # 1. 데이터 읽기
 df_dw_game = pd.read_csv("../Data/weather_ground_merge.csv")
 df_rs = pd.read_csv("../Data/regular_season_data.csv")
+df_td = pd.read_csv("../Data/")
 
 print(df_dw_game)
 print(df_rs)
