@@ -24,7 +24,6 @@ def team_details(s, id):
             selector2 = '#' + id +'2 > div > div > table > tbody > tr'
             game_details = s.select(selector2)
         game_contents = DataFrame()
-        game_contents['name'] = names
         for gd in range(0, len(game_details)):
             soup_tr = BeautifulSoup(str(game_details[gd]), 'html.parser')
             tds = soup_tr.select("td")
@@ -32,6 +31,7 @@ def team_details(s, id):
             for td in tds:
                 gc.append(td.text)
             game_contents = game_contents.append(Series(gc), ignore_index=True)
+
 
         selector3 = '#' + id +'3 > tbody > tr'
         game_summary = s.select(selector3)
@@ -47,6 +47,7 @@ def team_details(s, id):
             game_summaries.columns = ['타수', '안타', '타점', '득점', '타율']
 
         result = game_contents.merge(game_summaries, left_index=True, right_index=True)
+        result['name'] = names
         return result
     return DataFrame()
 
@@ -118,7 +119,7 @@ def data_parsing(html_data, total):
 if __name__ == "__main__":
 
 
-    for year in range(2001, 2020):
+    for year in range(2005, 2007):
         print(year)
 
         for month in range(3, 11):
@@ -128,13 +129,13 @@ if __name__ == "__main__":
 
             url = 'https://www.koreabaseball.com/Schedule/Schedule.aspx'
             driver.get(url)
-            driver.implicitly_wait(5)
-
-            driver.find_element_by_xpath("//select[@id='ddlYear']/option[@value=" + str(year) + "]").click()  # 년 선택
             driver.implicitly_wait(3)
 
+            driver.find_element_by_xpath("//select[@id='ddlYear']/option[@value=" + str(year) + "]").click()  # 년 선택
+            driver.implicitly_wait(10)
+
             driver.find_element_by_xpath("//select[@id='ddlMonth']/option[@value=" + str(month) + "]").click() # 월 선택
-            driver.implicitly_wait(13)
+            driver.implicitly_wait(20)
 
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -147,6 +148,7 @@ if __name__ == "__main__":
                 driver = webdriver.Chrome('/Users/jeehyun/Downloads/chromedriver')
                 driver.implicitly_wait(5)
                 driver.get('https://www.koreabaseball.com' + href)
+                driver.implicitly_wait(5)
 
                 html_detail = driver.page_source
                 total_data = data_parsing(html_detail, total_data)
