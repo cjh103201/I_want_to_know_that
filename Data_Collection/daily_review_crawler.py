@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jun 14 21:20:09 2020
-
-@author: Kyoung yeon
+일자별 선수별 경기 상세 내용 크롤링
 """
 # 모듈
 from selenium import webdriver
@@ -10,6 +8,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from pandas import DataFrame, Series
 
+
+# 선수별 상세 내역 가져오기
 def team_details(s, id):
     selector1 = '#' + id + '1 > tbody > tr > td'
     names_td = s.select(selector1)
@@ -51,12 +51,16 @@ def team_details(s, id):
         return result
     return DataFrame()
 
+
+# 공통 정보 추가 함수
 def get_more_info(data_str, length):
     data_list = []
     for i in range(0, length):
         data_list.append(str(data_str))
     return data_list
 
+
+# html에서 필요한 데이터 요소 가져오기
 def data_parsing(html_data, total):
     soup_detail = BeautifulSoup(html_detail, 'html.parser')
 
@@ -114,12 +118,8 @@ def data_parsing(html_data, total):
     return total
 
 
-
-
 if __name__ == "__main__":
-
-
-    for year in range(2005, 2007):
+    for year in range(2001, 2020):
         print(year)
 
         for month in range(3, 11):
@@ -132,10 +132,10 @@ if __name__ == "__main__":
             driver.implicitly_wait(3)
 
             driver.find_element_by_xpath("//select[@id='ddlYear']/option[@value=" + str(year) + "]").click()  # 년 선택
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(5)
 
             driver.find_element_by_xpath("//select[@id='ddlMonth']/option[@value=" + str(month) + "]").click() # 월 선택
-            driver.implicitly_wait(20)
+            driver.implicitly_wait(5)
 
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -146,9 +146,10 @@ if __name__ == "__main__":
                 href = tags.split('href="')[1].split('"')[0]
 
                 driver = webdriver.Chrome('/Users/jeehyun/Downloads/chromedriver')
-                driver.implicitly_wait(5)
+                driver.implicitly_wait(3)
                 driver.get('https://www.koreabaseball.com' + href)
                 driver.implicitly_wait(5)
+                # time.sleep(5)
 
                 html_detail = driver.page_source
                 total_data = data_parsing(html_detail, total_data)
