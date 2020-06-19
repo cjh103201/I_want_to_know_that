@@ -10,7 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0" />
+    <list default="true" id="eb7019a3-2f29-4dfa-9fb6-2703bcdda4c4" name="Default Changelist" comment="0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592472420634</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="0">
+      <created>1592493931575</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1592493931575</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -292,12 +301,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="280" y="86" key="SettingsEditor/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592455515124" />
-    <state x="436" y="160" key="Vcs.Push.Dialog.v2" timestamp="1592472434723">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2" timestamp="1592493952971">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1484" y="168" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297101291" />
     <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267513670" />
-    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592144442660" />
+    <state x="349" y="127" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592493952971" />
     <state x="436" y="160" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592472434723" />
     <state x="571" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591925775483">
       <screen x="0" y="0" width="1536" height="824" />
@@ -307,12 +316,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="199" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1591925662393" />
-    <state x="566" y="227" key="git4idea.merge.GitPullDialog" timestamp="1592472428005">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="453" y="180" key="git4idea.merge.GitPullDialog" timestamp="1592493942329">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1354" y="235" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1592297090472" />
     <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1592267471359" />
-    <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592143286849" />
+    <state x="453" y="180" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592493942329" />
     <state x="566" y="227" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592472428005" />
     <state x="521" y="201" key="git4idea.ui.GitUnstashDialog" timestamp="1591925699372">
       <screen x="0" y="0" width="1536" height="824" />
