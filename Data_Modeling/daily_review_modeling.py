@@ -44,9 +44,38 @@ df.iloc[:,:9] = df.iloc[:,:9].apply(lambda x : x.replace(dic))
 df['9'].unique()
 
 
+df_wg = pd.read_csv('Final_Data/weather_ground_merge.csv',encoding='CP949')
+df_wg = df_wg.iloc[:,2:]
+wg_year = df_wg['year'].astype('str')
+wg_month_date = df_wg['date'].str[:2] + '-' + df_wg['date'].str[3:5]
+wg_time = df_wg['playtime']
+
+df_wg['date'] = pd.to_datetime(wg_year + '-' + wg_month_date + ' ' + wg_time)
+
+del df_wg['playtime']
+del df_wg['dates']
+del df_wg['city']
+
+
+# 인천을 문학으로 변경
+ground_imsi=[]
+for i in df_wg['ground']:
+    if i == '인천':
+        ground_imsi.append('문학')
+    else:
+        ground_imsi.append(i)
+df_wg['ground'] = ground_imsi        
+    
+
+df_merge = pd.merge(df,df_wg, left_on=['시간','구장'], right_on=['date','ground'])
+
+
+from datetime import datetime, timedelta
+df_merge['시간'][0] + timedelta(days=-1)
 
 
 
-
+df_merge['시간'].unique()
+        
 
 
