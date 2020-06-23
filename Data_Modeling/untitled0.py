@@ -103,3 +103,39 @@ df['우측타구']=right_all
 
 
 df.to_csv('Temp_data.csv')
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+
+df1 = df.groupby('name').sum()
+
+
+hs_score = df1.loc['김현수',:][['좌안','중안','우안']]    # 당겨쳤을 때 단타 많이나옴
+plt.bar(range(len(hs_score)), hs_score)
+plt.title('타구별 김현수 안타 수', fontsize=10)
+plt.xlabel('타구방향', fontsize=8)
+plt.ylabel('안타 수', fontsize=8)
+plt.xticks(range(len(hs_score)),['좌안','중안','우안'], fontsize=7)
+plt.show()
+
+
+
+df1 = df.groupby('name').sum()
+
+def dir_score(name,directs):
+    imsi = df1.loc[name,:][directs]
+    plt.bar(range(len(imsi)), imsi)
+    plt.title(f'타구에 따른 {name}의 {directs}갯수', fontsize=10)
+    plt.xlabel('타구방향', fontsize=8)
+    plt.ylabel('갯수', fontsize=8)
+    plt.xticks(range(len(imsi)), directs, fontsize=7)
+    plt.show()
+
+dir_score('김현수',['좌안','중안','우안'])
+dir_score('김현수',['좌땅','중땅','우땅'])
+dir_score('김현수',['좌홈','중홈','우홈'])
+dir_score('김현수',['좌병','중병','우병'])
+
+
+dir_score('박병호',['좌홈','중홈','우홈'])
+dir_score('박병호',['좌병','중병','우병'])
+dir_score('박병호',['좌플','중플','우플'])
