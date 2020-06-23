@@ -6,16 +6,11 @@
 #############
 import pandas as pd
 import numpy as np
-from scipy.cluster.vq import kmeans,vq
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier as rf
-from sklearn.feature_selection import RFE
 from sklearn.linear_model import LinearRegression
 
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import StandardScaler
 
 # 시각화
 import matplotlib.pyplot as plt
@@ -92,7 +87,17 @@ ops_cr.sort_values(ascending=False)  # 상위 5개
 
 
 # left_right_merge.csv 파일
+df_tdd = pd.read_csv("../Data/Temp_Data/total_daily_data.csv", encoding='utf8', index_col='Unnamed: 0')
+
+
+
 df_td = pd.read_csv("../Data/Final_Data/left_right_info_merge.csv", encoding='utf8', index_col='Unnamed: 0')
+
+np.unique(df_td.loc[df_tdd.name == '김태균', 'team1'])
+
+.columns
+
+
 # 중복 컬럼 제거
 del df_td['시간']
 del df_td['team1']
@@ -114,9 +119,10 @@ df_td['2루타'] = df_td.loc[:, ['좌2', '중2', '우2']].sum(axis=1)
 df_td['month'] = df_td.date.str[5:7].astype('int')
 df_td['time'] = df_td.date.str[11:13]
 
-sub_td = df_td.loc[:, ['name', 'playteam_1', 'playteam_2', '관중', '구장', '득점', '안타', '타수', '타율', '타점', 
-                       '볼넷', '사구', '삼진', '1루타', '2루타', '연장여부', 'year', 'month', 'time', 'score_1', 'score_2', 
-                       '기온(°C)', '강수량(mm)', '풍속(m/s)', '풍향(16방위)', '습도(%)', 'side', 'center', 'fence']]
+
+# 득점, 타율, 홈런, 삼진만
+sub_td = df_td.loc[:, ['name', 'playteam_1', '관중', '득점', '타율', '홈런', '삼진', 'year']]
+
 
 sub_1 = sub_td.loc[:, ['year', 'month', 'time', 'playteam_1', 'playteam_2', '관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '사구', '삼진', 
                        '1루타', '2루타', 'score_1', 'score_2']].groupby(['year', 'month', 'time', 'playteam_1']).sum()
