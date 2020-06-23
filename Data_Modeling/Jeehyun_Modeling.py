@@ -87,65 +87,67 @@ ops_cr.sort_values(ascending=False)  # 상위 5개
 
 
 # left_right_merge.csv 파일
-df_tdd = pd.read_csv("../Data/Temp_Data/total_daily_data.csv", encoding='utf8', index_col='Unnamed: 0')
-
-
-
 df_td = pd.read_csv("../Data/Final_Data/left_right_info_merge.csv", encoding='utf8', index_col='Unnamed: 0')
 
-np.unique(df_td.loc[df_tdd.name == '김태균', 'team1'])
-
-.columns
-
-
-# 중복 컬럼 제거
-del df_td['시간']
-del df_td['team1']
-del df_td['team2']
-del df_td['ground']
-
 # 나눔/드림 데이터 삭제
-df_td = df_td.loc[df_td.playteam_1 != '나눔', :]
-df_td = df_td.loc[df_td.playteam_1 != '드림', :]
+df_td = df_td.loc[df_td.team1 != '나눔', :]
+df_td = df_td.loc[df_td.team1 != '드림', :]
+df_td = df_td.loc[df_td.team1 != 'EAST', :]
+df_td = df_td.loc[df_td.team1 != 'WEST', :]
+
+df_td = df_td.loc[-df_td.team1.isna(), :]
+
 
 # 히어로즈, 넥섹 -> 키움으로 변경
-df_td['playteam_1'] = df_td['playteam_1'].str.replace('히어로즈', '키움')
-df_td['playteam_1'] = df_td['playteam_1'].str.replace('넥센', '키움')
-df_td['playteam_2'] = df_td['playteam_2'].str.replace('히어로즈', '키움')
-df_td['playteam_2'] = df_td['playteam_2'].str.replace('넥센', '키움')
+df_td['team1'] = df_td['team1'].str.replace('히어로즈', '키움')
+df_td['team1'] = df_td['team1'].str.replace('넥센', '키움')
+df_td['team2'] = df_td['team2'].str.replace('히어로즈', '키움')
+df_td['team2'] = df_td['team2'].str.replace('넥센', '키움')
 
 df_td['1루타'] = df_td.loc[:, ['좌안', '중안', '우안']].sum(axis=1)
 df_td['2루타'] = df_td.loc[:, ['좌2', '중2', '우2']].sum(axis=1)
-df_td['month'] = df_td.date.str[5:7].astype('int')
-df_td['time'] = df_td.date.str[11:13]
-
+df_td['홈런'] = df_td.loc[:, ['좌홈', '중홈', '우홈']].sum(axis=1)
+df_td['year'] = df_td.날짜.str[:4]
+df_td['month'] = df_td.날짜.str[5:7].astype('int')
+df_td['time'] = df_td.날짜.str[11:13]
+df_td['관중'] = df_td.관중.str[5:].str.replace(',', '').astype(int)
 
 # 득점, 타율, 홈런, 삼진만
-sub_td = df_td.loc[:, ['name', 'playteam_1', '관중', '득점', '타율', '홈런', '삼진', 'year']]
+sub_td = df_td.loc[:, ['team1', '관중', '득점', '타율', '홈런', '삼진', 'year']]
 
+sub1 = sub_td.groupby(['year', 'team1']).sum()
+sub1['타율'] = sub_td.groupby(['year', 'team1']).mean()['타율']
 
-sub_1 = sub_td.loc[:, ['year', 'month', 'time', 'playteam_1', 'playteam_2', '관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '사구', '삼진', 
-                       '1루타', '2루타', 'score_1', 'score_2']].groupby(['year', 'month', 'time', 'playteam_1']).sum()
+# scaler
+sub2 = pd.DataFrame()
+for i in range(2001, 2020):
+    m_mms = MinMaxScaler()
+    m_mms.fit(sub1.xs(str(i)))
+    tmp = m_mms.transform(sub1.xs(str(i)))
+    sub2 = sub2.append(pd.DataFrame(tmp))
 
-sub_2 = sub_td.loc[:, ['year', 'month', 'time', 'playteam_1', 'playteam_2', '기온(°C)', '강수량(mm)', '풍속(m/s)', '풍향(16방위)', '습도(%)', 
-                       'side', 'center', 'fence']].groupby(['year', 'month', 'time', 'playteam_1']).mean()
+sub2.columns = sub1.columns
+sub2.index = sub1.index
 
-sub_td2 = pd.merge(sub_1, sub_2,  left_index=True, right_index=True)
+# 히트맵
+df_sub1 = df_td.loc[:, ['name', 'team1', 'team2', '경기시간', '관중', '구장', '날짜', '득점', '안타',
+              '타수', '타율', '타점', '볼넷', '사구', '삼진', '1루타', '2루타', 'month', '홈런', 'year']]
 
-# 팀 전체 상관계수 - 히트맵
-cor = sub_td2.corr(method='pearson')
-plt.figure(figsize=(21,21))
+sub12 = df_sub1.groupby(['year', 'month', 'team1']).sum()
+sub12['타율'] = df_sub1.groupby(['year', 'month', 'team1']).mean()['타율']
+
+cor = sub12.corr(method='pearson')
+plt.figure(figsize=(13,13))
 sns.heatmap(data=cor, annot=True, fmt='.2f', linewidths=.5, cmap='RdYlGn_r')
 plt.xticks(rotation = - 45 )
 plt.yticks(rotation = 45 )
-plt.title("팀 전체에 대한 변수 간 상관계수")
+plt.title("월별 팀 전체 데이터의 변수 간 상관계수")
 plt.show()
 
-
 # 팀별 상관계수 - 히트맵
-teams = list(np.unique(sub_td.playteam_1))      # 팀 목록
+teams = list(df_td['team1'].drop_duplicates())     # 팀 목록
 for t in range(0, len(teams)):
-    tmp = sub_td2.xs(teams[t], level=3)
+    tmp = sub12.xs(teams[t], level=2)
     tmp_cor = tmp.corr(method='pearson')   
     plt.figure(figsize=(21,21))
     sns.heatmap(data=tmp_cor, annot=True, fmt='.2f', linewidths=.5, cmap='RdYlGn_r')
@@ -154,37 +156,18 @@ for t in range(0, len(teams)):
     plt.title(teams[t] + "의 변수 간 상관계수")
     plt.show()
 
-# 팀별 연도별 상관계수 - 선 그래프
-# 값을 0-1사이로 scaling
-sub_11 = sub_td.loc[:, ['year', 'playteam_1', 'playteam_2', '관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '사구', '삼진', 
-                       '1루타', '2루타', 'score_1', 'score_2']].groupby(['year', 'playteam_1']).sum()
 
-sub_22 = sub_td.loc[:, ['year', 'playteam_1', 'playteam_2', '기온(°C)', '강수량(mm)', '풍속(m/s)', '풍향(16방위)', '습도(%)', 
-                       'side', 'center', 'fence']].groupby(['year', 'playteam_1']).mean()
-
-sub_td22 = pd.merge(sub_11, sub_22,  left_index=True, right_index=True)
-
-# scaling -> 관중 수와 이외의 변수들의 범위 간격이 크기 때문에 scaling 진행
-m_mms = MinMaxScaler()
-m_mms.fit(sub_td22)
-sub_td22_scaled = pd.DataFrame(m_mms.transform(sub_td22))
-sub_td22_scaled.index = sub_td22.index
-sub_td22_scaled.columns = list(sub_td22.columns)
-
-
-# 한화, 롯데, 기아
-# KT, 키움
+# 관중 수에 따른 다른 변수 변화 추이
+# 한화, 롯데, 기아, KT, 키움
 team = '한화'
 team = '롯데'
 team = 'KIA'
 team = 'KT'
 team = '키움'
 
-sub2 = sub_td22_scaled.loc[:, ['관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '삼진', '1루타', '2루타']]
-cols = list(sub2.columns)
-
-for i in range(1, len(cols)):
-    plt.subplot(3,3,i)
+plt.rcParams["figure.figsize"] = (20,20)
+for i in range(1, len(sub2.columns)):
+    plt.subplot(2,2,i)
     sub2.xs(team, level=1).loc[:,'관중'].plot(color='g')
     sub2.xs(team, level=1).loc[:,cols[i]].plot(color='orange')
     plt.legend()
@@ -196,6 +179,44 @@ plt.suptitle(team)
 
 
 
+#
+# # 팀별 연도별 상관계수 - 선 그래프
+# # 값을 0-1사이로 scaling
+# sub_11 = sub_td.loc[:, ['year', 'playteam_1', 'playteam_2', '관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '사구', '삼진',
+#                        '1루타', '2루타', 'score_1', 'score_2']].groupby(['year', 'playteam_1']).sum()
+#
+# sub_22 = sub_td.loc[:, ['year', 'playteam_1', 'playteam_2', '기온(°C)', '강수량(mm)', '풍속(m/s)', '풍향(16방위)', '습도(%)',
+#                        'side', 'center', 'fence']].groupby(['year', 'playteam_1']).mean()
+#
+# sub_td22 = pd.merge(sub_11, sub_22,  left_index=True, right_index=True)
+#
+#
+# # scaling -> 관중 수와 이외의 변수들의 범위 간격이 크기 때문에 scaling 진행
+# m_mms = MinMaxScaler()
+# m_mms.fit(sub_td22)
+# sub_td22_scaled = pd.DataFrame(m_mms.transform(sub_td22))
+# sub_td22_scaled.index = sub_td22.index
+# sub_td22_scaled.columns = list(sub_td22.columns)
+#
+#
+# # 한화, 롯데, 기아
+# # KT, 키움
+# team = '한화'
+# team = '롯데'
+# team = 'KIA'
+# team = 'KT'
+# team = '키움'
+#
+# sub2 = sub_td22_scaled.loc[:, ['관중', '득점', '안타', '타수', '타율', '타점', '볼넷', '삼진', '1루타', '2루타']]
+# cols = list(sub2.columns)
+#
+# for i in range(1, len(cols)):
+#     plt.subplot(3,3,i)
+#     sub2.xs(team, level=1).loc[:,'관중'].plot(color='g')
+#     sub2.xs(team, level=1).loc[:,cols[i]].plot(color='orange')
+#     plt.legend()
+#     plt.show()
+# plt.suptitle(team)
 #
 #
 # f, a = plt.subplots(3,1)
