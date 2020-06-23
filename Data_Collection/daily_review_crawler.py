@@ -122,7 +122,7 @@ if __name__ == "__main__":
     for year in range(2001, 2020):
         print(year)
 
-        for month in range(3, 11):
+        for month in range(4, 11):
             total_data = DataFrame()
             driver = webdriver.Chrome('../Common/chromedriver')
             driver.implicitly_wait(10)
